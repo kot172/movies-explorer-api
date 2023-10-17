@@ -2,4 +2,4 @@ const urlRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9
 
 const emailRegex = /^\S+@\S+\.\S+$/;
 
-module.exports = { urlRegex, emailRegex }
+module.exports = { urlRegex, emailRegex };

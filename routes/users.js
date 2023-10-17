@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const {
-  editUserData, getMeUser
+  editUserData, getMeUser,
 } = require('../controllers/users');
 const { emailRegex } = require('../utils/constans');
 

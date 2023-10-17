@@ -7,13 +7,11 @@ const { urlRegex } = require('../utils/constans');
 
 router.get('/', getMovies);
 
-
 router.delete('/:movieId', celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().length(24).hex().required(),
   }),
 }), deleteMovie);
-
 
 router.post('/', celebrate({
   body: Joi.object().keys({
