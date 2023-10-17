@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 const cors = require('cors');
-const rateLimit = require('express-rate-limit');
+const { limiter } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/error-handler');
 
@@ -18,11 +18,6 @@ app.use(cors());
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
 });
 
 app.use(helmet());
