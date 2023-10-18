@@ -46,7 +46,7 @@ module.exports.addMovie = (req, res, next) => {
 };
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find(req.params.movieId)
+  Movie.find({ owner: req.user._id })
     .then((cards) => res.status(HTTP_STATUS_OK).send(cards))
     .catch(next);
 };

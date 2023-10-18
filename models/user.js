@@ -2,12 +2,11 @@ const mongoose = require('mongoose');
 // const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const UnautorizedError = require('../errors/Unauthorized');
-const { urlRegex } = require('../utils/constans');
+const { emailRegex } = require('../utils/constans');
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    default: 'Жак-Ив Кусто',
     minlength: [2, 'Минимальная длина поля - 2'],
     maxlength: [30, 'Максимальная длина поля - 30'],
   },
@@ -17,7 +16,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: {
       validator(email) {
-        return urlRegex.test(email);
+        return emailRegex.test(email);
       },
       message: 'Введите верный email',
     },
